@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="mainCss.css">
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <div id="sideBar"> 
+      <div class="slider">
+        <input type="color" value="#000000" id="colorPicker">
+        <input type="range" min="1" max="25" value="5" class="toolBar" id="lineWidth">
+        <div id="widthVal" class="font"></div>
+      </div>
+      
+      <select id="selectFont">
+        <option value="Arial" >Arial</option>
+        <option value="Courier New">Courier New</option>
+        <option value="serif">serif</option>
+        <option value="">Times New Roman</option>
+      </select>
+      <div class="slider">
+        <input type="range" min="10" max="90" value="20" id="fontSlider">
+        <div id="fontSize" class="font"></div>
+      </div>
+      
+      <div id="buttonBar">   
+        <div class="row">
+          <input type="image" src="./assets/pencil.svg" alt="pencil" class="btn highlightBtn" id="pencil" onclick="selectTool(this.id); highlight(this.id)">
+          <input type="image" src="./assets/eraser.svg" alt="eraser" class="btn" id="eraser" onclick="selectTool(this.id); highlight(this.id)">
+          <input type="image" src="./assets/text.svg" alt="text" class="btn" id="text"
+            onclick="selectTool(this.id); highlight(this.id)">
+        </div>
+        <div class="row">
+          <input type="image" src="./assets/circle.svg" alt="circle" class="btn" id="circle"
+            onclick="selectTool(this.id); highlight(this.id)">
+          <input type="image" src="./assets/triangle.svg" alt="triangle" class="btn" id="triangle"
+            onclick="selectTool(this.id); highlight(this.id)">
+            <input type="image" src="./assets/rectangle.svg" alt="rectangle" class="btn" id="rectangle"
+              onclick="selectTool(this.id); highlight(this.id)">
+          </div>
+        <div class="row">
+          <input type="image" src="./assets/line.svg" alt="diagonal-line" class="btn" id="line"
+            onclick="selectTool(this.id); highlight(this.id)">
+          <input type="image" src="./assets/download.png" alt="download" class="btn" id="download" onclick="downloadImage()" >
+          <label for="upload"><img src="./assets/upload.png" class="btn"></label>
+        </div>
+        <div class="row">
+          <input type="image" src="./assets/undo.png" alt="undo" class="btn" id="undo" onclick="undo()">
+          <input type="image" src="./assets/redo.png" alt="redo" class="btn" id="redo" onclick="redo()">
+          <input type="image" src="./assets/refresh.png" alt="update-arrows" class="btn" id="refresh" onclick="clearCanvas()">
+        </div>
+      </div>
+    </div>
+    <input type="file" name="" id="upload" onchange="upload(event)">
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+
+body{
+  background-color: #373738;
+  margin-left: 5%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  /* height: 100vh; */
+}
+
+#myCanvas{
+  border-radius: 25px;
+  background-color: #ffffff;
+}
+#sideBar{
+  margin-left: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* align-self: flex-end; */
+  
+}
+#colorPicker {
+  border-radius: 10px;
+  background-color: #373738;
+  border-style: none;
+  
+}
+.slider{
+  display: flex;
+  flex-direction: row;
+}
+.font{
+  margin-left: 2%;
+  color: #C2AB78;
+}
+
+#buttonBar {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.btn {
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  outline: none;
+}
+.btn:hover {
+  background-color: #C2AB78;
+}
+.highlightBtn {
+  background-color: #C2AB78;
+}
+
+
+#upload{
+  width: 0px;
+  height: 0px;
+}
