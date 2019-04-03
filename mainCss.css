@@ -72,10 +72,10 @@ body{
 }
 
 #zoom{
-  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 #zoomText{
-  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
   padding-bottom: 22%;
   color: #C2AB78;
 }
