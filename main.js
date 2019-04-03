@@ -24,11 +24,16 @@ fontSize.innerHTML = setFont.value;
 setFont.oninput = () =>{
   fontSize.innerHTML = setFont.value;
 }
-c.addEventListener('mousedown', startDraw, true);
+
+c.addEventListener('mousedown', startDraw);
 c.addEventListener('mousemove', isDraw);
 window.addEventListener('mousedown', function(e){
-  console.log('123');
-}, true)
+  if(isTexting){
+    if(e.target.id !== 'myCanvas' && e.target.id !== 'textBox'){
+      clearText();
+    }
+  }
+})
 
 // fill white color 
 window.onload = () =>{
@@ -42,6 +47,7 @@ var body = document.getElementsByTagName('body');
 c.width = body[0].clientWidth * 0.65;
 c.height = c.width * 0.75;
 c.style.cursor = `url('./assets/pencil.svg'), auto`;
+
 // resise canvas width and height
 window.onresize = () => {
   c.width = body[0].clientWidth * 0.65;
