@@ -4,7 +4,7 @@ var setWidth = document.getElementById('lineWidth');
 var widthVal = document.getElementById('widthVal')
 var undoArr = new Array();
 var redoArr = new Array();
-
+var zoom = document.getElementById('zoom');
 var drawVaild = false;
 var isTexting = false;
 var tool = 'pencil';
@@ -23,6 +23,9 @@ setWidth.oninput = () =>{
 fontSize.innerHTML = setFont.value;
 setFont.oninput = () =>{
   fontSize.innerHTML = setFont.value;
+}
+ zoom.oninput = () =>{
+  zoomImage(zoom.value);
 }
 
 c.addEventListener('mousedown', startDraw);
@@ -79,7 +82,7 @@ function restoreTemp() {
     temp.src = redoArr[0];
     temp.onload = () =>{
       ctx.drawImage(temp, 0, 0);
-      resolve();
+      resolve(temp);
     }
   })
 }
@@ -196,7 +199,6 @@ async function triangleDraw(e) {
   ctx.lineTo(startX - (e.offsetX - startX), e.offsetY);
   ctx.lineTo(startX, startY);
   ctx.stroke();
-  // ctx.closePath();
 }
 
 async function rectangleDraw(e){
@@ -208,8 +210,7 @@ async function rectangleDraw(e){
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.lineTo(startX, e.offsetY);
   ctx.lineTo(startX, startY);
-  ctx.stroke();
-  // ctx.closePath();
+  ctx.stroke(); 
 }
 
 async function circleDraw(e){
@@ -219,7 +220,6 @@ async function circleDraw(e){
   let radius = Math.sqrt(Math.pow((startX - e.offsetX), 2) + Math.pow((startY - e.offsetY), 2));
   ctx.arc(startX, startY, radius, 0 * Math.PI, 2 * Math.PI);
   ctx.stroke();
-  // ctx.closePath();
 }
 
 async function lineDraw(e){
@@ -229,7 +229,6 @@ async function lineDraw(e){
   ctx.moveTo(startX, startY);
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
-  // ctx.closePath();
 }
 
 function undo(){
@@ -314,3 +313,12 @@ function text(e){
   
 }
 
+async function zoomImage(scale) {
+  let temp = await restoreTemp();
+  let imgWidth = c.width * scale;
+  let imgHeight = c.height * scale;
+  let x = (c.width - imgWidth) / 2;
+  let y = (c.height - imgHeight) / 2;
+  ctx.clearRect(0, 0, c.clientWidth, c.clientHeight);
+  ctx.drawImage(temp, x, y, imgWidth, imgHeight);
+}
