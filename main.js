@@ -261,11 +261,13 @@ function redo(){
   })
 }
 
-function highlight(id){
+function selected(id){
   btn = document.getElementById(id);
   highlightBtn = document.getElementsByClassName('highlightBtn');
-  if (highlightBtn.length === 1) highlightBtn[0].classList.remove('highlightBtn');
-  btn.classList.add('highlightBtn')
+  for (let i = 0; i < highlightBtn.length; i++) {
+    highlightBtn[i].classList.remove('highlightBtn');
+  }
+  btn.classList.add('highlightBtn');
 }
 
 function downloadImage(){
@@ -303,7 +305,7 @@ function text(e){
   ctx.lineWidth = 1;
   ctx.fillStyle = colorPicker.value;
   input.addEventListener('keydown', function(evt){
-    if(evt.keyCode == 13){
+    if(evt.code == 'Enter'){
       ctx.fillText(`${input.value}`,e.offsetX, e.offsetY);
       isTexting = false;
       storeTemp();

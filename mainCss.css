@@ -1,6 +1,6 @@
 
 body{
-  background-color: #373738;
+  background-color: #2f2c30;
   margin-left: 5%;
   margin-top: 3%;
   display: flex;
@@ -52,12 +52,16 @@ body{
   height: 40px;
   outline: none;
 }
-.btn:hover {
-  background-color: #C2AB78;
-}
+
 .highlightBtn {
-  background-color: #C2AB78;
+  background-color: #C2AB78 !important;
+
 }
+.btn:hover {
+  background-color: rgba(221, 194, 136, 0.5);
+  
+}
+
 
 
 #upload{
@@ -77,5 +81,10 @@ body{
 #zoomText{
   transform: rotate(270deg);
   padding-bottom: 22%;
+  color: #C2AB78;
+}
+
+#selectFont{
+  background-color: #2f2c2f;
   color: #C2AB78;
 }

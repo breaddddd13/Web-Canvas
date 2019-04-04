@@ -6,7 +6,7 @@
   <body>
     <div id="zoomBar">
       <div id="zoomText">zoom in</div>
-      <input type="range" min="1" max="10" value="1" step=".25" id="zoom">
+      <input type="range" min="1" max="5" value="1" step=".25" id="zoom">
     </div>
     <canvas id="myCanvas"></canvas>
     <div id="sideBar"> 
@@ -29,22 +29,22 @@
       
       <div id="buttonBar">   
         <div class="row">
-          <input type="image" src="./assets/pencil.svg" alt="pencil" class="btn highlightBtn" id="pencil" onclick="selectTool(this.id); highlight(this.id)">
-          <input type="image" src="./assets/eraser.svg" alt="eraser" class="btn" id="eraser" onclick="selectTool(this.id); highlight(this.id)">
+          <input type="image" src="./assets/pencil.svg" alt="pencil" class="btn highlightBtn" id="pencil" onclick="selectTool(this.id); selected(this.id)">
+          <input type="image" src="./assets/eraser.svg" alt="eraser" class="btn" id="eraser" onclick="selectTool(this.id); selected(this.id)">
           <input type="image" src="./assets/text.svg" alt="text" class="btn" id="text"
-            onclick="selectTool(this.id); highlight(this.id)">
+            onclick="selectTool(this.id); selected(this.id)">
         </div>
         <div class="row">
           <input type="image" src="./assets/circle.svg" alt="circle" class="btn" id="circle"
-            onclick="selectTool(this.id); highlight(this.id)">
+            onclick="selectTool(this.id); selected(this.id)">
           <input type="image" src="./assets/triangle.svg" alt="triangle" class="btn" id="triangle"
-            onclick="selectTool(this.id); highlight(this.id)">
+            onclick="selectTool(this.id); selected(this.id)">
             <input type="image" src="./assets/rectangle.svg" alt="rectangle" class="btn" id="rectangle"
-              onclick="selectTool(this.id); highlight(this.id)">
+              onclick="selectTool(this.id); selected(this.id)">
           </div>
         <div class="row">
           <input type="image" src="./assets/line.svg" alt="diagonal-line" class="btn" id="line"
-            onclick="selectTool(this.id); highlight(this.id)">
+            onclick="selectTool(this.id); selected(this.id)">
           <input type="image" src="./assets/download.png" alt="download" class="btn" id="download" onclick="downloadImage()" >
           <label for="upload"><img src="./assets/upload.png" class="btn"></label>
         </div>
